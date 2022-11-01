@@ -1,0 +1,50 @@
+@import './variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    max-width: 2000px;
+    margin: 0 auto;
+    background-color: $main-background-dark;
+    color: $main-font-color-blue;
+}
+
+textarea {
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: $main-font-color-blue;
+}
+
+.rating {
+    color: yellow
+}
+
+.logout {
+    border: none;
+    background: none;
+    color: $main-font-color-blue;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.rating__count {
+    margin-left: .5rem;
+}
+
+@import './header';
+@import './company';
+@import './form';
+@import './filter';
+@import './home'

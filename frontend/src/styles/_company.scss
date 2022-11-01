@@ -1,0 +1,94 @@
+.company {
+    margin: 2rem 1rem;
+}
+
+.company__success {
+    color: green;
+    text-align: center;
+}
+
+.company__container {
+    margin: 2rem auto;
+    max-width: 1000px;
+}
+
+.company__underline {
+    max-width: 1000px;
+    height: 3px;
+    background-color: $main-font-color-blue;
+    margin: 0 auto;
+}
+
+.company__box {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.company__description {
+    margin-bottom: 1rem;
+    white-space: pre-line;
+}
+
+.company__comment {
+    margin-bottom: 1rem;
+    background-color: $second-color-gray;
+    padding: .5rem;
+    border-radius: .3rem;
+
+    p:nth-child(1) {
+        font-weight: bold;
+    }
+}
+
+.company__form-comment {
+    display: flex;
+    flex-direction: column;
+}
+
+.company__form-comment-textarea {
+    min-height: 10vh;
+    max-width: 100%;
+    min-width: 100%;
+    padding: .3rem;
+    font-size: 1.1rem;
+    font-family: 'Lato', sans-serif;
+    margin: .5rem 0;
+    border-radius: .3rem;
+    outline: none;
+}
+
+.company__form-comment-button,
+.company__form-rate-button,
+.form__form-register-button,
+.form__form-search-button {
+    width: 150px;
+    padding: .3rem 1rem;
+    border-radius: .5rem;
+    border: none;
+    margin-bottom: 1rem;
+    align-self: end;
+    font-weight: bold;
+    background-color: $main-font-color-blue;
+    color: $second-color-gray;
+    cursor: pointer;
+}
+
+.form__form-search-button {
+    margin-top: .5rem;
+    margin-left: 1rem;
+}
+
+.company__form-rate-button {
+    margin-left: 1rem;
+}
+
+.company__form-rate {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.company__panel-title {
+    margin-bottom: .5rem;
+}

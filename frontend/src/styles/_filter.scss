@@ -1,0 +1,13 @@
+.filter {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto 5rem;
+
+    form {
+        margin-left: auto;
+    }
+}
+
+.filter__label {
+    font-weight: bold;
+}

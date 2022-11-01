@@ -1,0 +1,37 @@
+.header__nav-item {
+    margin: 1rem 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    align-items: center;
+}
+
+.header__box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media(min-width: 576px) {
+    .header {
+        flex-direction: row;
+        align-items: normal;
+        justify-content: space-between;
+    }
+
+    .header__nav-item {
+        margin: 0;
+    }
+
+    .header__box {
+        display: block;
+    }
+
+    .header__company-panel {
+        margin: 0 1rem;
+    }
+}
