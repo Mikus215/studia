@@ -39,6 +39,7 @@ const Login = () => {
             localStorage.setItem('user', JSON.stringify({
                 userId: data.userId,
                 userName: data.userName,
+                isModerator: data.isModerator,
                 expireDateUserToken: Date.now()
             }))
             setUserFormData({

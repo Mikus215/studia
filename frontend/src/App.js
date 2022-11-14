@@ -33,7 +33,8 @@ function App() {
     } else {
       handleLogin({
         userId: user.userId,
-        userName: user.userName
+        userName: user.userName,
+        isModerator: user.isModerator
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
