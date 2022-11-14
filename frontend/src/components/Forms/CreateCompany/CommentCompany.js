@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { addCompanyComment } from '../../../api';
 
-const CommentCompany = ({ _id }) => {
+const CommentCompany = ({ _id, getData }) => {
     const [userComment, setUserComment] = useState("")
     const [success, setSuccess] = useState("")
     const handleCommentData = e => setUserComment(e.target.value)
@@ -11,6 +11,7 @@ const CommentCompany = ({ _id }) => {
 
         try {
             await addCompanyComment(userComment, _id)
+            getData()
             setSuccess("Dodałeś komentarz")
         } catch (error) {
             console.log(error);

@@ -10,8 +10,10 @@ const Header = () => {
             <Link to={"/"} className="header__nav-item">Stron Główna</Link>
             {isLogin.userId && (
                 <div className='header__box'>
-                    <Link to={"/company/register"} className="header__nav-item">Zarejestruj firmę</Link>
-                    <Link to={"/company/panel"} className='header__company-panel header__nav-item'>Panel firm</Link>
+                    {isLogin.isModerator && (<>
+                        <Link to={"/company/register"} className="header__nav-item">Zarejestruj firmę</Link>
+                        <Link to={"/company/panel"} className='header__company-panel header__nav-item'>Panel firm</Link>
+                    </>)}
                     <Logout />
                 </div>
             )}

@@ -9,16 +9,19 @@ export function useContextUser() {
 const ContextUserLogin = ({ children }) => {
     const [isLogin, setIsLogin] = useState({
         userId: "",
-        userName: ""
+        userName: "",
+        isModerator: false
     })
 
     const handleLogin = user => setIsLogin({
         userId: user.userId,
-        userName: user.userName
+        userName: user.userName,
+        isModerator: user.isModerator,
     })
     const handleLogout = () => setIsLogin({
         userId: "",
-        userName: ""
+        userName: "",
+        isModerator: false
     })
 
     return (

@@ -11,7 +11,7 @@ const CompanyList = ({ companyList, getData }) => {
     return (
         <>
             {companyList.map(el => (
-                <SingleCompany {...el} key={el._id} />
+                <SingleCompany {...el} key={el._id} getData={getData}/>
             ))}
         </>
     );

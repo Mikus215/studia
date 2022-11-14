@@ -7,19 +7,9 @@ export const postCreateCompany = async (req, res, next) => {
 
     try {
 
-        if (!mongoose.Types.ObjectId.isValid(userId)) return res.status(404).json({ message: 'Nie ma takiego użytkownika z tym ID' })
-
-        if (title.length < 2) return res.status(400).json({ message: "Długość nazwy firmy musi być większa niż 2 znaki" })
-
-        if (description.length < 10) return res.status(400).json({ message: "Minimalna długość opisu firmy to 10 znaków" })
-
-        const isAlreadyExist = await CompanyModel.findOne({ title })
-
-        if (isAlreadyExist) return res.status(400).json({ message: "Nazwa z taką firmą już istnieje" })
-
         const newCompany = await CompanyModel.create({ creator: userId, title, description })
 
-        res.status(200).json(newCompany)
+        res.status(201).json(newCompany)
 
     } catch (error) {
         res.status(500).json({ message: "Coś poszło nie tak" })
@@ -43,19 +33,10 @@ export const getCreatorListCompany = async (req, res, next) => {
 }
 
 export const deleteCompany = async (req, res, next) => {
-    const { id } = req.params
-    const userId = req.user.user._id
 
     try {
 
-        if (!mongoose.Types.ObjectId.isValid(userId)) return res.status(404).json({ message: 'Nie ma takiego użytkownika z tym ID' })
-        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({ message: 'Nie ma takiej firmy z tym ID' })
-
-        const company = await CompanyModel.findById(id);
-
-        if (company.creator !== userId) return res.status(400).json({ message: "Nie masz uprawnień aby usunąć tą firmę, nie należy do ciebie" })
-
-        await CompanyModel.deleteOne(company);
+        await CompanyModel.deleteOne(req.company);
 
         res.status(202).json({ message: "Pomyślnie usunięto" })
     } catch (error) {
@@ -66,18 +47,10 @@ export const deleteCompany = async (req, res, next) => {
 export const updateCompany = async (req, res, next) => {
     const { id } = req.params
     const { title, description } = req.body
-    const userId = req.user.user._id
 
     const updateCompany = { title: title, description: description }
 
     try {
-
-        if (!mongoose.Types.ObjectId.isValid(userId)) return res.status(404).json({ message: 'Nie ma takiego użytkownika z tym ID' })
-        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({ message: 'Nie ma takiej firmy z tym ID' })
-
-        const company = await CompanyModel.findById(id);
-
-        if (company.creator !== userId) return res.status(400).json({ message: "Nie masz uprawnień aby usunąć tą firmę, nie należy do ciebie" })
 
         await CompanyModel.findByIdAndUpdate(id, updateCompany)
 
@@ -100,14 +73,11 @@ export const getCompanyList = async (req, res, next) => {
 
 export const postAddCompanyComment = async (req, res, next) => {
     const userId = req.user.user._id
-    const userName = req.user.user.name
     const { id } = req.params
+    const userName = req.user.user.name
     const { comment } = req.body
 
     try {
-
-        if (!mongoose.Types.ObjectId.isValid(userId)) return res.status(404).json({ message: 'Nie ma takiego użytkownika z tym ID' })
-        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({ message: 'Nie ma takiej firmy z tym ID' })
 
         const company = await CompanyModel.findById(id)
 
@@ -119,7 +89,7 @@ export const postAddCompanyComment = async (req, res, next) => {
 
         await company.save()
 
-        res.status(200).json("Dodano opinie")
+        res.status(201).json({message: "Dodano opinie"})
     } catch (error) {
         res.status(500).json({ message: "Coś poszło nie tak" })
     }
@@ -131,9 +101,6 @@ export const addRate = async (req, res, next) => {
     const { rate } = req.body
 
     try {
-
-        if (!mongoose.Types.ObjectId.isValid(userId)) return res.status(404).json({ message: 'Nie ma takiego użytkownika z tym ID' })
-        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({ message: 'Nie ma takiej firmy z tym ID' })
 
         const company = await CompanyModel.findById(id)
 

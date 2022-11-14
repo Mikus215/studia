@@ -5,7 +5,7 @@ import Rating from './Rating';
 import SingleComment from './SingleComment';
 import { useContextUser } from '../Context/ContextUserLogin';
 
-const SingleCompany = ({ title, description, _id, avgRating, comments, countRating }) => {
+const SingleCompany = ({ title, description, _id, avgRating, comments, countRating, getData }) => {
 
     const { isLogin } = useContextUser()
 
@@ -20,7 +20,7 @@ const SingleCompany = ({ title, description, _id, avgRating, comments, countRati
                 {isLogin.userId
                     &&
                     <>
-                        <CommentCompany _id={_id} />
+                        <CommentCompany _id={_id} getData={getData}/>
                         <RateCompany _id={_id} />
                     </>
                 }
