@@ -24,6 +24,7 @@ const CompanyPanel = () => {
 
     return (
         <>
+            {userCompany.length === 0 && <p className='company__empty-panel'>Brak zarejestrowanych firm</p>}
             {userCompany.map(el => (
                 <div className="company" key={el._id}>
                     <p className='company__panel-title'>{el.title}</p> <EditButton company={el} setSuccess={setSuccess} /> <DeleteButton companyId={el._id} serUserCompany={serUserCompany} setSuccess={setSuccess} />

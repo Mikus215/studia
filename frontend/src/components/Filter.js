@@ -30,7 +30,7 @@ const Filter = ({ setComapnyList }) => {
             <form onSubmit={onSubmitHandler}>
                 <label htmlFor="filter" className='filter__label'>Filtruj po: </label>
                 <select name="" id="filter" onChange={handleFormData}>
-                    <option value="number-of-opinions">Ilość opinii</option>
+                    <option value="number-of-opinions">Liczba opinii</option>
                     <option value="best-opinions">Od najlepszych do najgorszych</option>
                 </select>
                 <button className='form__form-search-button'>Filtruj</button>
