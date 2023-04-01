@@ -1,20 +1,19 @@
-import React, { useEffect } from 'react';
-import SingleCompany from './SingleCompany';
+import React, { useEffect } from "react";
+import SingleCompany from "./SingleCompany";
 
 const CompanyList = ({ companyList, getData }) => {
+  useEffect(() => {
+    getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    useEffect(() => {
-        getData()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    return (
-        <>
-            {companyList.map(el => (
-                <SingleCompany {...el} key={el._id} getData={getData}/>
-            ))}
-        </>
-    );
-}
+  return (
+    <>
+      {companyList.map((el) => (
+        <SingleCompany {...el} key={el._id} getData={getData} />
+      ))}
+    </>
+  );
+};
 
 export default CompanyList;

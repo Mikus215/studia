@@ -9,6 +9,8 @@ import HomeScreen from './components/HomeScreen';
 import Header from './components/Header';
 import CompanyPanel from './components/CompanyPanel'
 import RegisterComapny from './components/Forms/CreateCompany/RegisterCompany';
+import News from './components/News';
+import Gallery from './components/Gallery';
 
 function App() {
 
@@ -49,6 +51,8 @@ function App() {
         <Route path='/user/register' element={<Register />} />
         <Route path='/company/panel' element={<CompanyPanel />} />
         <Route path='/company/register' element={<RegisterComapny />} />
+        <Route path='/news' element={<News />} />
+        <Route path='/gallery' element={<Gallery />} />
       </Routes>
 
     </BrowserRouter>

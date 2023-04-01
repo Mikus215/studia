@@ -16,6 +16,11 @@
     flex-direction: column;
 }
 
+.header__nav-box{
+    display: flex;
+    gap: 1rem;
+}
+
 @media(min-width: 576px) {
     .header {
         flex-direction: row;
