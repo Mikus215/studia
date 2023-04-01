@@ -30,7 +30,7 @@ const HomeScreen = () => {
 
   return (
     <div className="home">
-      <Search setComapnyList={setComapnyList} onGetData={getData} />
+      <Search setComapnyList={setComapnyList} onGetData={getData} paginate={paginate}/>
       <Filter setComapnyList={setComapnyList} />
       <CompanyList
         companyList={currentCompanys}

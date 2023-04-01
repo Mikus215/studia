@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
 import { getSearchedCompany } from '../api'
 
-const Search = ({ setComapnyList, onGetData }) => {
+const Search = ({ setComapnyList, onGetData, paginate }) => {
 
     const [searchField, setSearchField] = useState("")
     const [error, setError] = useState("")
 
-    const handleSearchField = e => setSearchField(e.target.value)
-
+    const handleSearchField = e => {
+        setSearchField(e.target.value)
+    }
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         try {
             const { data } = await getSearchedCompany(searchField)
+            paginate(1)
             setComapnyList(data)
             setError("")
         } catch (error) {

@@ -2,8 +2,8 @@ import axios from 'axios'
 
 axios.defaults.withCredentials = true
 
-const API = axios.create({ baseURL: 'https://kind-swimsuit-crow.cyclic.app/' })
-// const API = axios.create({ baseURL: 'http://localhost:5000/' })
+// const API = axios.create({ baseURL: 'https://kind-swimsuit-crow.cyclic.app/' })
+const API = axios.create({ baseURL: 'http://localhost:5000/' })
 
 export const registerUser = user => API.post('/user/register', user, { withCredentials: true })
 export const loginUser = user => API.post('/user/login', user, { withCredentials: true })
